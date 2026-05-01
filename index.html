@@ -18,37 +18,55 @@
 --muted: #555560;
 }
 
-*{margin:0;padding:0;box-sizing:border-box;}
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
 
 body{
-background:var(--black);
+background-color:var(--black);
 color:var(--white);
-font-family:'DM Sans',sans-serif;
+font-family:'DM Sans', Arial, sans-serif;
+line-height:1.6;
 }
 
 /* NAV */
 nav{
 position:fixed;
-top:0;left:0;right:0;
+top:0;
+left:0;
+right:0;
 display:flex;
 justify-content:space-between;
+align-items:center;
 padding:20px 40px;
-background:rgba(0,0,0,0.8);
-z-index:10;
+background:rgba(6,6,8,0.95);
+z-index:100;
+border-bottom:1px solid rgba(200,255,0,0.1);
 }
 
 .nav-logo{
-font-family:'Bebas Neue';
+font-family:'Bebas Neue', cursive;
 color:var(--acid);
-font-size:22px;
+font-size:24px;
+font-weight:bold;
+letter-spacing:2px;
 }
 
 .nav-cta{
 background:var(--acid);
 padding:10px 20px;
 text-decoration:none;
-color:black;
+color:#000;
 font-weight:700;
+cursor:pointer;
+border:none;
+font-size:14px;
+}
+
+.nav-cta:hover{
+background:var(--acid2);
 }
 
 /* HERO */
@@ -60,61 +78,113 @@ justify-content:center;
 align-items:center;
 text-align:center;
 padding:120px 20px;
+margin-top:60px;
 }
 
 .hero h1{
-font-family:'Bebas Neue';
+font-family:'Bebas Neue', cursive;
 font-size:120px;
 line-height:0.9;
+letter-spacing:3px;
+margin-bottom:30px;
+color:var(--acid);
+text-transform:uppercase;
 }
 
 .hero p{
-max-width:500px;
-color:#888;
-margin:20px 0;
+max-width:600px;
+color:#999;
+margin:20px auto;
+font-size:18px;
+line-height:1.8;
+}
+
+.hero .bonus{
+margin-top:20px;
+color:#666;
+font-size:14px;
 }
 
 .btn{
 background:var(--acid);
-color:black;
-padding:15px 30px;
+color:#000;
+padding:15px 40px;
 text-decoration:none;
 font-weight:700;
 display:inline-block;
+margin-top:30px;
+cursor:pointer;
+border:none;
+font-size:16px;
+transition:background 0.3s ease;
+}
+
+.btn:hover{
+background:var(--acid2);
 }
 
 /* SECTION */
 .section{
 padding:100px 20px;
-max-width:1000px;
-margin:auto;
+max-width:1200px;
+margin:0 auto;
 text-align:center;
 }
 
 .section h2{
-font-family:'Bebas Neue';
+font-family:'Bebas Neue', cursive;
 font-size:60px;
-margin-bottom:20px;
+margin-bottom:40px;
+color:var(--acid);
+letter-spacing:2px;
+text-transform:uppercase;
+}
+
+.section p{
+font-size:16px;
+color:#aaa;
+margin:20px 0;
+line-height:1.8;
 }
 
 /* CALCULATOR */
 .calc-box{
-background:var(--gray);
-padding:30px;
+background:var(--gray2);
+padding:40px;
 margin-top:40px;
+border:1px solid rgba(200,255,0,0.2);
+max-width:500px;
+margin-left:auto;
+margin-right:auto;
+}
+
+.calc-input-group{
+margin:20px 0;
+font-size:16px;
 }
 
 input{
-padding:10px;
-width:80px;
+padding:12px;
+width:100px;
 text-align:center;
-margin:10px;
+margin:0 10px;
+background:var(--gray);
+border:1px solid rgba(200,255,0,0.3);
+color:var(--acid);
+font-weight:bold;
+}
+
+input:focus{
+outline:none;
+border-color:var(--acid);
+box-shadow:0 0 10px rgba(200,255,0,0.2);
 }
 
 .result{
-margin-top:20px;
-font-size:22px;
+margin-top:30px;
+font-size:24px;
 color:var(--acid);
+font-weight:bold;
 }
 
 /* FOOTER */
@@ -122,6 +192,31 @@ footer{
 padding:40px;
 text-align:center;
 color:#666;
+border-top:1px solid rgba(200,255,0,0.1);
+margin-top:60px;
+}
+
+@media (max-width: 768px) {
+nav{
+padding:15px 20px;
+}
+
+.nav-logo{
+font-size:18px;
+}
+
+.hero h1{
+font-size:60px;
+}
+
+.section h2{
+font-size:40px;
+}
+
+input{
+width:70px;
+padding:8px;
+}
 }
 </style>
 </head>
@@ -130,17 +225,14 @@ color:#666;
 
 <nav>
 <div class="nav-logo">S2E</div>
-<a href="#" class="nav-cta">Beta'ya Katıl</a>
+<button class="nav-cta">Beta'ya Katıl</button>
 </nav>
 
 <section class="hero">
 <h1>SCROLL2EARN</h1>
-<p>Zamanını scroll'a harcıyorsun. Biz onu değere çeviriyoruz.</p>
-<a href="#" class="btn">Ücretsiz Başla</a>
-
-<p style="margin-top:10px;color:#666;font-size:13px;">
-🔥 İlk 10.000 kullanıcıya 2x bonus
-</p>
+<p>Zamanını scroll'a harcıyorsun.<br>Biz onu değere çeviriyoruz.</p>
+<button class="btn">Ücretsiz Başla</button>
+<p class="bonus">🔥 İlk 10.000 kullanıcıya 2x bonus</p>
 </section>
 
 <section class="section">
@@ -152,30 +244,34 @@ color:#666;
 <h2>KAZANCINI HESAPLA</h2>
 
 <div class="calc-box">
-<input type="number" id="hours" value="3"> saat / gün<br>
-<input type="number" id="days" value="30"> gün<br>
+<div class="calc-input-group">
+<input type="number" id="hours" value="3" min="0"> saat / gün
+</div>
 
-<br>
-<button class="btn" onclick="calc()">Hesapla</button>
+<div class="calc-input-group">
+<input type="number" id="days" value="30" min="0"> gün
+</div>
+
+<button class="btn" onclick="calc()" style="margin-top:20px;">Hesapla</button>
 
 <div class="result" id="result"></div>
 </div>
 </section>
 
 <footer>
-© 2026 Scroll2Earn
+© 2026 Scroll2Earn - Zamanını değere çevir
 </footer>
 
 <script>
 function calc(){
-let h = document.getElementById("hours").value;
-let d = document.getElementById("days").value;
+let h = parseFloat(document.getElementById("hours").value) || 0;
+let d = parseFloat(document.getElementById("days").value) || 0;
 
 let coins = h * d * 25;
 let tl = coins * 0.30;
 
 document.getElementById("result").innerHTML =
-coins + " coin ≈ ₺" + Math.round(tl);
+coins.toLocaleString('tr-TR') + " coin ≈ ₺" + Math.round(tl).toLocaleString('tr-TR');
 }
 </script>
 
